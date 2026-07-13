@@ -54,8 +54,8 @@ header p {
 ======================================== */
 /* Controls the width of the main content */
 main {
-    width: 90%;
-    max-width: 1100px;
+    width: 80%;
+    max-width: 900px;
     margin: 40px auto;
 }
 
@@ -203,6 +203,53 @@ nav {
 }
 
 /* ========================================
+   Locations Toolbar
+======================================== */
+
+.locations-toolbar {
+    background-color: rgba(255, 255, 255, 0.22);
+    border-radius: 10px;
+    margin: 20px 0 24px;
+    padding: 18px;
+}
+
+.search-field,
+.toolbar-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-field label,
+.toolbar-field label {
+    color: var(--color-text);
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.search-field input,
+.toolbar-field select {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: var(--color-text);
+    font: inherit;
+    padding: 10px 12px;
+    width: 100%;
+}
+
+.search-field input:focus,
+.toolbar-field select:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.toolbar-options {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 14px;
+}
+
+/* ========================================
    Location Cards
 ======================================== */
 
@@ -239,19 +286,11 @@ nav {
 }
 
 .location-photo img {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 20 / 9;
     border-radius: 10px;
     display: block;
     object-fit: cover;
     width: 100%;
-}
-
-.location-photo figcaption {
-    color: var(--color-text);
-    font-size: 0.9rem;
-    font-style: italic;
-    margin-top: 6px;
-    text-align: center;
 }
 
 .location-landmarks {

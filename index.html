@@ -88,33 +88,86 @@
                     status can be confirmed.
                 </p>
 
-            <div class="location-list">
+                <form class="locations-toolbar">
+                    <div class="search-field">
+                        <label for="location-search">Search locations</label>
 
-                <article class="location-card">
-                    <h3>Sunday City Board Box</h3>
-
-                    <figure class="location-photo">
-                        <img
-                            src="images/locations/sunday-city-board-box.png"
-                            alt="Sunday City Board box spawn location near the casino entrance"
+                        <input
+                            type="search"
+                            id="location-search"
+                            name="location-search"
+                            placeholder="Search by location name..."
                         >
-
-                        <figcaption>
-                            Sunday City Board box location
-                        </figcaption>
-                    </figure>
-
-                    <div class="location-landmarks">
-                        <h4>Nearby Landmark(s)</h4>
-
-                        <ul>
-                            <li>Sunday City information board</li>
-                            <li>Casino entrance</li>
-                        </ul>
                     </div>
-                </article>
 
-            </div>
+                    <div class="toolbar-options">
+                        <div class="toolbar-field">
+                            <label for="sort-locations">Sort by</label>
+
+                            <select id="sort-locations" name="sort-locations">
+                                <option value="route">Route Order</option>
+                                <option value="alphabetical">Alphabetical</option>
+                            </select>
+                        </div>
+
+                        <div class="toolbar-field">
+                            <label for="filter-locations">Filter</label>
+
+                            <select id="filter-locations" name="filter-locations">
+                                <option value="all">All Locations</option>
+                                <option value="box-visible">Box Visible</option>
+                                <option value="location-only">Location Only</option>
+                                <option value="potentially-retired">Potentially Retired</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            
+                <div class="location-list">
+
+                    <article class="location-card">
+                        <h3>Sunday City Board Box</h3>
+
+                        <figure class="location-photo">
+                            <img
+                                src="images/locations/sunday-city-board-box.png"
+                                alt="Sunday City Board box spawn location near the casino entrance"
+                            >
+                        </figure>
+
+                        <div class="location-landmarks">
+                            <h4>Nearby Landmark(s)</h4>
+
+                            <ul>
+                                <li>Sunday City information board</li>
+                                <li>Casino entrance</li>
+                            </ul>
+                        </div>
+                    </article>
+
+
+                    <article class="location-card">
+                        <h3>Sample Location Card</h3>
+
+                        <figure class="location-photo">
+                            <img
+                                src="images/locations/sunday-city-board-box.png"
+                                alt="Sample location screenshot"
+                            >
+                        </figure>
+
+                        <div class="location-landmarks">
+                            <h4>Nearby Landmark(s)</h4>
+
+                            <ul>
+                                <li>Landmark One</li>
+                                <li>Landmark Two</li>
+                            </ul>
+                        </div>
+                    </article>
+
+
+                </div>
         </section>
 
     </main>
