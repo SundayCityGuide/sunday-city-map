@@ -1,0 +1,278 @@
+/* ========================================
+   Color Palette
+======================================== */
+:root {
+    --color-background: #F9D976;
+    --color-header: #F39C12;
+    --color-water: #2CA8D6;
+    --color-accent: #D35400;
+    --color-text: #2C1810;
+    --color-light-text: #FFFFFF;
+}
+
+/* ========================================
+   Global Styles
+======================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   Global Page Styles
+======================================== */
+/* Styles the entire page */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ========================================
+   Header
+======================================== */
+header {
+    background-color: var(--color-header);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: var(--color-light-text);
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   Main Content
+======================================== */
+/* Controls the width of the main content */
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* ========================================
+   Guide Information
+======================================== */
+
+.guide-info {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    margin: 30px auto 0;
+    max-width: 1100px;
+    padding: 24px 30px;
+    width: 90%;
+}
+
+.guide-info h2 {
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.guide-info p {
+    color: var(--color-text);
+}
+
+.guide-note {
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.guide-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.guide-detail {
+    background-color: rgba(255, 255, 255, 0.55);
+    border-radius: 8px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 190px;
+    padding: 14px;
+}
+
+.guide-detail strong {
+    color: var(--color-text);
+}
+
+.guide-detail span {
+    color: var(--color-text);
+}
+
+/* ========================================
+   Sections
+======================================== */
+/* Styles each content section */
+section {
+    background-color: var(--color-water);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+section h2 {
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+section p {
+    color: var(--color-light-text);
+}
+
+/* Specific Sections */
+
+.map-section {
+    min-height: 350px;
+}
+
+/* Map Container */
+
+.map-container {
+    background-color: rgba(255, 255, 255, 0.15);
+
+    border: 3px dashed white;
+
+    border-radius: 10px;
+
+    height: 250px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.route-section {
+    min-height: 350px;
+}
+
+.route-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 3px dashed var(--color-light-text);
+    border-radius: 10px;
+    min-height: 250px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    text-align: center;
+}
+
+.locations-section {
+    min-height: 220px;
+}
+
+/* ========================================
+   Navigation
+======================================== */
+
+nav {
+    margin-top: 25px;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+    list-style: none;
+}
+
+.nav-list a {
+    color: var(--color-light-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    color: var(--color-water);
+}
+
+/* ========================================
+   Location Cards
+======================================== */
+
+.location-list {
+    display: grid;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.location-card {
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 460px;
+    overflow: hidden;
+    padding: 20px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.location-card:hover {
+    box-shadow: 0 10px 24px rgba(44, 24, 16, 0.22);
+    transform: translateY(-4px);
+}
+
+.location-card h3 {
+    color: var(--color-text);
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+}
+
+.location-photo {
+    margin: 0;
+}
+
+.location-photo img {
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+}
+
+.location-photo figcaption {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.location-landmarks {
+    margin-top: 18px;
+}
+
+.location-landmarks h4 {
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.location-landmarks ul {
+    list-style: none;
+}
+
+.location-landmarks li {
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+
+.location-landmarks li::before {
+    content: "📍";
+    margin-right: 8px;
+}

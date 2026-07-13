@@ -7,39 +7,119 @@
 
     <title>Sunday City Box Guide</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body> 
 
     <header>
         <h1>Sunday City Box Guide</h1>
+        
         <p>
         An interactive guide to every known box spawn in Sunday City.
         </p>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#map">Interactive Map</a></li>
+                <li><a href="#route">Optimal Route for Box Runs</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+
     </header>
+
+        <section class="guide-info" id="about">
+            <h2>About This Guide</h2>
+
+            <p class="guide-note">
+                This guide documents every known box spawn location in Sunday City.
+                It is maintained through direct gameplay and is continuously updated
+                as new evidence is collected.
+            </p>
+
+            <div class="guide-details">
+                <div class="guide-detail">
+                    <strong>Latest Verification</strong>
+                    <span>July 2026</span>
+                </div>
+
+                <div class="guide-detail">
+                    <strong>Known Box Locations</strong>
+                    <span>60+</span>
+                </div>
+
+                <div class="guide-detail">
+                    <strong>Box Rotation</strong>
+                    <span>20 boxes every 12 hours</span>
+                </div>
+            </div>
+        </section>
 
     <main>
 
-        <section>
+        <section class="map-section" id="map">
             <h2>Interactive Map</h2>
 
-            <p>
-                The map will go here.
-            </p>
+            <div class="map-container">
+
+                <p>Interactive map coming soon...</p>
+
+            </div>
+
         </section>
 
-        <section>
-            <h2>Locations</h2>
+        <section class="route-section" id="route">
+            <h2>Optimal Route for Box Runs</h2>
 
-            <p>
-                Location pins and descriptions will appear here.
-            </p>
+            <div class="route-container">
+                <p>
+                    A map with arrows showing the suggested route for visiting each box location will go here.
+                </p>
+            </div>
+        </section>
+
+        <section class="locations-section" id="locations">
+            <h2>Locations</h2>
+                <p class="guide-note">
+                    *Spawn locations are continuously verified as new evidence is collected.
+                    Locations believed to be retired remain documented until their current
+                    status can be confirmed.
+                </p>
+
+            <div class="location-list">
+
+                <article class="location-card">
+                    <h3>Sunday City Board Box</h3>
+
+                    <figure class="location-photo">
+                        <img
+                            src="images/locations/sunday-city-board-box.png"
+                            alt="Sunday City Board box spawn location near the casino entrance"
+                        >
+
+                        <figcaption>
+                            Sunday City Board box location
+                        </figcaption>
+                    </figure>
+
+                    <div class="location-landmarks">
+                        <h4>Nearby Landmark(s)</h4>
+
+                        <ul>
+                            <li>Sunday City information board</li>
+                            <li>Casino entrance</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
         </section>
 
     </main>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
