@@ -1,6 +1,9 @@
 const filterSelect = document.getElementById("filter-locations");
+const sortSelect = document.getElementById("sort-locations");
+const locationList = document.querySelector(".location-list");
+
 const searchInput = document.getElementById("location-search");
-const locationCards = document.querySelectorAll(".location-card");
+const locationCards = Array.from(document.querySelectorAll(".location-card"));
 const noResultsMessage = document.getElementById("no-results-message");
 
 function updateLocationCards() {
@@ -38,6 +41,29 @@ function updateLocationCards() {
     noResultsMessage.hidden = visibleCardCount !== 0;
 }
 
+function sortLocationCards() {
+    const selectedSort = sortSelect.value;
+
+    let sortedCards;
+
+    if (selectedSort === "alphabetical") {
+        sortedCards = [...locationCards].sort(function (cardA, cardB) {
+            const nameA = cardA.querySelector("h3").textContent;
+            const nameB = cardB.querySelector("h3").textContent;
+
+            return nameA.localeCompare(nameB);
+        });
+    } else {
+        sortedCards = [...locationCards];
+    }
+
+    sortedCards.forEach(function (card) {
+        locationList.appendChild(card);
+    });
+}
+
 filterSelect.addEventListener("change", updateLocationCards);
 
 searchInput.addEventListener("input", updateLocationCards);
+
+sortSelect.addEventListener("change", sortLocationCards);
