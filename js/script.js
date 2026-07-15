@@ -1,15 +1,17 @@
 const locations = [
     {
-        name: "Sunday City Board Box",
-        image: "images/locations/sunday-city-board-box.png",
-        alt: "Sunday City Board box spawn location near the casino entrance",
-        landmarks: [
-            "Sunday City information board",
-            "Casino entrance"
-        ],
-        boxVisible: false,
-        retired: false
+    name: "Sunday City Board Box",
+    image: "images/locations/sunday-city-board-box.png",
+    alt: "Sunday City Board box spawn location near the casino entrance",
+    landmarks: [
+        "Sunday City information board",
+        "Casino entrance"
+    ],
+    boxVisible: false,
+    retired: false,
+    routeOrder: 1
     },
+
     {
         name: "Sample Location Card",
         image: "images/locations/sunday-city-board-box.png",
@@ -19,7 +21,8 @@ const locations = [
             "Landmark Two"
         ],
         boxVisible: true,
-        retired: false
+        retired: false,
+        routeOrder: 2
     }
 ];
 
@@ -38,6 +41,7 @@ function createLocationCards() {
 
         card.dataset.boxVisible = location.boxVisible;
         card.dataset.retired = location.retired;
+        card.dataset.routeOrder = location.routeOrder;
 
         const landmarkItems = location.landmarks
             .map(function (landmark) {
@@ -112,17 +116,20 @@ function updateLocationCards() {
 function sortLocationCards() {
     const selectedSort = sortSelect.value;
 
-    let sortedCards;
+    let sortedCards = [...locationCards];
 
     if (selectedSort === "alphabetical") {
-        sortedCards = [...locationCards].sort(function (cardA, cardB) {
+        sortedCards.sort(function (cardA, cardB) {
             const nameA = cardA.querySelector("h3").textContent;
             const nameB = cardB.querySelector("h3").textContent;
 
             return nameA.localeCompare(nameB);
         });
     } else {
-        sortedCards = [...locationCards];
+        sortedCards.sort(function (cardA, cardB) {
+            return Number(cardA.dataset.routeOrder)
+                - Number(cardB.dataset.routeOrder);
+        });
     }
 
     sortedCards.forEach(function (card) {
