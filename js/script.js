@@ -1,10 +1,78 @@
-const filterSelect = document.getElementById("filter-locations");
-const sortSelect = document.getElementById("sort-locations");
-const locationList = document.querySelector(".location-list");
+const locations = [
+    {
+        name: "Sunday City Board Box",
+        image: "images/locations/sunday-city-board-box.png",
+        alt: "Sunday City Board box spawn location near the casino entrance",
+        landmarks: [
+            "Sunday City information board",
+            "Casino entrance"
+        ],
+        boxVisible: false,
+        retired: false
+    },
+    {
+        name: "Sample Location Card",
+        image: "images/locations/sunday-city-board-box.png",
+        alt: "Sample location screenshot",
+        landmarks: [
+            "Landmark One",
+            "Landmark Two"
+        ],
+        boxVisible: true,
+        retired: false
+    }
+];
 
+const filterSelect = document.getElementById("filter-locations");
 const searchInput = document.getElementById("location-search");
-const locationCards = Array.from(document.querySelectorAll(".location-card"));
+const sortSelect = document.getElementById("sort-locations");
+
+const locationList = document.querySelector(".location-list");
 const noResultsMessage = document.getElementById("no-results-message");
+
+function createLocationCards() {
+    locations.forEach(function (location) {
+        const card = document.createElement("article");
+
+        card.classList.add("location-card");
+
+        card.dataset.boxVisible = location.boxVisible;
+        card.dataset.retired = location.retired;
+
+        const landmarkItems = location.landmarks
+            .map(function (landmark) {
+                return `<li>${landmark}</li>`;
+            })
+            .join("");
+
+        card.innerHTML = `
+            <h3>${location.name}</h3>
+
+            <figure class="location-photo">
+                <img
+                    src="${location.image}"
+                    alt="${location.alt}"
+                >
+            </figure>
+
+            <div class="location-landmarks">
+                <h4>Nearby Landmark(s)</h4>
+
+                <ul>
+                    ${landmarkItems}
+                </ul>
+            </div>
+        `;
+
+        locationList.appendChild(card);
+    });
+}
+
+createLocationCards();
+
+const locationCards = Array.from(
+    document.querySelectorAll(".location-card")
+);
 
 function updateLocationCards() {
     const selectedFilter = filterSelect.value;
