@@ -270,6 +270,10 @@ nav {
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+.location-card[hidden] {
+    display: none;
+}
+
 .location-card:hover {
     box-shadow: 0 10px 24px rgba(44, 24, 16, 0.22);
     transform: translateY(-4px);

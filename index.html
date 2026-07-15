@@ -88,7 +88,7 @@
                     status can be confirmed.
                 </p>
 
-                <form class="locations-toolbar">
+                <div class="locations-toolbar">
                     <div class="search-field">
                         <label for="location-search">Search locations</label>
 
@@ -121,53 +121,64 @@
                             </select>
                         </div>
                     </div>
-                </form>
+                </div>
             
                 <div class="location-list">
 
-                    <article class="location-card">
+                    <article 
+                        class="location-card"
+                        data-box-visible="false"
+                        data-retired="false"
+                        >
                         <h3>Sunday City Board Box</h3>
 
-                        <figure class="location-photo">
-                            <img
-                                src="images/locations/sunday-city-board-box.png"
-                                alt="Sunday City Board box spawn location near the casino entrance"
-                            >
-                        </figure>
+                            <figure class="location-photo">
+                                <img
+                                    src="images/locations/sunday-city-board-box.png"
+                                    alt="Sunday City Board box spawn location near the casino entrance"
+                                >
+                            </figure>
 
-                        <div class="location-landmarks">
-                            <h4>Nearby Landmark(s)</h4>
+                            <div class="location-landmarks">
+                                <h4>Nearby Landmark(s)</h4>
 
-                            <ul>
-                                <li>Sunday City information board</li>
-                                <li>Casino entrance</li>
-                            </ul>
-                        </div>
+                                <ul>
+                                    <li>Sunday City information board</li>
+                                    <li>Casino entrance</li>
+                                </ul>
+                            </div>
                     </article>
 
 
-                    <article class="location-card">
+                    <article
+                        class="location-card"
+                        data-box-visible="true"
+                        data-retired="false"
+                        >
                         <h3>Sample Location Card</h3>
 
-                        <figure class="location-photo">
-                            <img
-                                src="images/locations/sunday-city-board-box.png"
-                                alt="Sample location screenshot"
-                            >
-                        </figure>
+                            <figure class="location-photo">
+                                <img
+                                    src="images/locations/sunday-city-board-box.png"
+                                    alt="Sample location screenshot"
+                                >
+                            </figure>
 
-                        <div class="location-landmarks">
-                            <h4>Nearby Landmark(s)</h4>
+                            <div class="location-landmarks">
+                                <h4>Nearby Landmark(s)</h4>
 
-                            <ul>
-                                <li>Landmark One</li>
-                                <li>Landmark Two</li>
-                            </ul>
-                        </div>
+                                <ul>
+                                    <li>Landmark One</li>
+                                    <li>Landmark Two</li>
+                                </ul>
+                            </div>
                     </article>
 
 
                 </div>
+            <p id="no-results-message" hidden>
+                No locations match the selected filter.
+            </p>
         </section>
 
     </main>
