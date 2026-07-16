@@ -1,188 +1,219 @@
-Next Steps
-1. Read the Selected Filter
+# Sunday City Box Guide — Updated Next Steps
 
-Update the filter event listener so JavaScript reads the value of the selected option.
+## Current Progress
 
-Example values:
+The following features are complete:
 
-all
-box-visible
-location-only
-potentially-retired
+* Filter dropdown reads the selected value.
+* JavaScript loops through every location card.
+* Card data attributes are read through `dataset`.
+* All filter options work:
 
-This will use:
+  * All Locations
+  * Box Visible
+  * Location Only
+  * Potentially Retired
+* Cards are shown or hidden using the `hidden` property.
+* The Potentially Retired filter was tested successfully.
+* The empty-results message works.
+* Search works and ignores capitalization.
+* Search and filters work together through `updateLocationCards()`.
+* Sorting works:
 
-filterSelect.value
+  * Route Order
+  * Alphabetical
+* Location cards are generated automatically from the JavaScript `locations` array.
+* Each location includes a `routeOrder` value.
+* Route Order sorting uses each card’s `data-route-order` value.
 
-The selected value will be stored in a variable such as:
+## Next Steps
 
-const selectedFilter = filterSelect.value;
-2. Loop Through Every Location Card
+### 1. Replace the Temporary Sample Card
 
-Use JavaScript to go through the list of location cards one at a time.
+Remove the temporary `Sample Location Card` object from the `locations` array.
 
-This will use:
+Replace it with the next real Sunday City location.
 
-locationCards.forEach(...)
+Confirm that the new card displays:
 
-The same code will work for the two test cards now and for all future location cards.
+* The correct location name
+* The correct screenshot
+* The correct nearby landmarks
+* The correct box visibility status
+* The correct retired status
+* The correct route order
 
-3. Read Each Card’s Data Attributes
+### 2. Continue Adding Real Locations
 
-For each card, JavaScript will read:
+Add the remaining locations to the JavaScript `locations` array.
 
-data-box-visible
-data-retired
+Use this structure:
 
-JavaScript can access them through the card’s dataset.
+```javascript
+{
+    name: "Location Name",
+    image: "images/locations/image-name.png",
+    alt: "Description of the location screenshot",
+    landmarks: [
+        "Nearby landmark one",
+        "Nearby landmark two"
+    ],
+    boxVisible: true,
+    retired: false,
+    routeOrder: 2
+}
+```
 
-Example:
+Each location should have its own object.
 
-card.dataset.boxVisible
-card.dataset.retired
+### 3. Keep Route Order Values Unique
 
-These values will tell JavaScript whether:
-
-The screenshot contains the box.
-The screenshot is only a reference photo.
-The location may be retired.
-4. Decide Whether Each Card Matches the Filter
-
-Use conditional logic to compare the selected filter with each card’s data.
-
-Planned behavior:
-
-All Locations
-Show every card.
-
-Box Visible
-Show cards where data-box-visible="true".
-
-Location Only
-Show cards where data-box-visible="false" and data-retired="false".
-
-Potentially Retired
-Show cards where data-retired="true".
-
-This will introduce JavaScript concepts such as:
-
-if
-else if
-else
-
-and comparison operators such as:
-
-===
-&&
-5. Show or Hide Each Card
-
-Once JavaScript determines whether a card matches the selected filter, it will show or hide that card.
-
-Possible approach:
-
-card.hidden = true;
-card.hidden = false;
-
-This allows the browser to remove nonmatching cards from the visible layout without deleting them from the HTML.
-
-6. Test Every Filter Option
-
-Use the two test cards to confirm that:
-
-All Locations shows both cards.
-Box Visible shows only the sample card.
-Location Only shows only the Sunday City Board Box card.
-Potentially Retired shows no cards until a retired test card is added.
-
-We may temporarily change one test card to:
-
-data-retired="true"
-
-to verify the retired filter.
-
-7. Add an Empty-Results Message
-
-After filtering works, add a message for situations where no cards match.
+Each location should have a unique `routeOrder` number.
 
 Example:
 
-No locations match the selected filter.
+```javascript
+routeOrder: 1
+routeOrder: 2
+routeOrder: 3
+```
 
-The message should only appear when all location cards are hidden.
+These values determine the order of the cards when Route Order is selected.
 
-8. Build the Search Feature
+The route numbers should match the intended box-run sequence.
 
-After filtering is complete, make the search box work.
+### 4. Add Locations in Small Groups
 
-The search feature will:
+Do not add all 60 or more locations at once.
 
-Listen for typing in the search box.
-Read the text the user entered.
-Compare it with each location name.
-Hide cards whose names do not match.
+Add around five locations at a time, then test:
 
-This will introduce:
+* Images
+* Location names
+* Landmarks
+* Search
+* Filters
+* Alphabetical sorting
+* Route Order sorting
+* Empty-results message
 
-input events
-textContent
-toLowerCase()
-includes()
-9. Make Search and Filter Work Together
+This will make mistakes easier to find.
 
-A location card should only remain visible when it matches both:
+### 5. Add Potentially Retired Badges
 
-The search text.
-The selected filter.
+Cards with:
 
-Instead of having separate features overwrite one another, we will likely create one function that updates the visible cards based on all current controls.
+```javascript
+retired: true
+```
 
-Possible name:
+should display a visible badge:
 
-updateLocationCards()
-10. Build the Sort Feature
+```text
+⚠️ Potentially Retired
+```
 
-After search and filtering work together, connect the Sort dropdown.
+Cards with:
 
-Planned options:
+```javascript
+retired: false
+```
 
-Route Order
-Alphabetical
+should not display the badge.
 
-Route Order will preserve the intended box-run sequence.
+The badge should be generated automatically by JavaScript.
 
-Alphabetical will sort cards by location name.
+### 6. Add Optional Location Notes
 
-11. Generate Cards from JavaScript Data
+Some locations may need an extra note, especially potentially retired locations.
 
-Once the toolbar features work, move the location information into a JavaScript data structure.
+Add an optional field such as:
+
+```javascript
+note: "This location has not been confirmed recently."
+```
+
+JavaScript should only generate the note when the field contains text.
+
+Regular locations should not display an empty note section.
+
+### 7. Improve the Empty-Results Message
+
+The current message refers only to the selected filter.
+
+Update it to cover both search and filtering.
+
+Suggested wording:
+
+```text
+No locations match your current search or filter.
+```
+
+The message should appear whenever every location card is hidden.
+
+### 8. Test Search, Filters, and Sorting Together
+
+Test combinations such as:
+
+* Search plus All Locations
+* Search plus Box Visible
+* Search plus Location Only
+* Search plus Potentially Retired
+* Alphabetical sorting while searching
+* Route Order while searching
+* Alphabetical sorting after filtering
+* Route Order after filtering
+* Clearing the search box
+* Returning the filter to All Locations
+
+A card should only appear when it matches the current search and filter.
+
+Sorting should rearrange the matching cards without changing whether they are visible.
+
+### 9. Review Image File Names
+
+Use clear and consistent image names.
 
 Example:
 
-const locations = [
-    {
-        name: "Sunday City Board Box",
-        image: "images/locations/sunday-city-board-box.png",
-        landmarks: [
-            "Sunday City information board",
-            "Casino entrance"
-        ],
-        verifiedWithoutPhoto: true,
-        retired: false
-    }
-];
+```text
+sunday-city-board-box.png
+casino-side-box.png
+lighthouse-courtyard-box.png
+```
 
-JavaScript will then generate the HTML cards automatically.
+Keep image paths consistent:
 
-This will prevent us from manually writing and maintaining more than 60 nearly identical <article> elements.
+```javascript
+image: "images/locations/image-name.png"
+```
 
-Immediate Next Step
+Avoid spaces and capital letters in image filenames.
 
-Continue inside the existing filter event listener by reading the selected value:
+### 10. Review Accessibility Text
 
-const selectedFilter = filterSelect.value;
+Each image should have a useful `alt` description.
 
-Then test it with:
+Example:
 
-console.log(selectedFilter);
+```javascript
+alt: "Box spawn location beside the Sunday City information board near the casino entrance"
+```
 
-After that, begin looping through the location cards.
+The alt text should describe the location clearly rather than simply repeating the location name.
+
+### 11. Remove Temporary Testing Content
+
+After several real locations have been added and tested:
+
+* Remove the Sample Location Card.
+* Remove temporary retired test values.
+* Remove unnecessary `console.log()` statements.
+* Confirm there are no broken image paths.
+* Confirm the browser console has no errors.
+
+## Immediate Next Step
+
+Replace the temporary Sample Location Card with the next real Sunday City location.
+
+Then add a small group of real locations and test the toolbar before continuing.
