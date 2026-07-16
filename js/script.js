@@ -896,3 +896,24 @@ filterSelect.addEventListener("change", updateLocationCards);
 searchInput.addEventListener("input", updateLocationCards);
 
 sortSelect.addEventListener("change", sortLocationCards);
+
+const mapPins = document.querySelectorAll(".map-pin");
+
+mapPins.forEach(function (pin) {
+    pin.addEventListener("click", function () {
+        const targetLocation = pin.dataset.location;
+
+        const matchingCard = locationCards.find(function (card) {
+            const cardName = card.querySelector("h3").textContent;
+
+            return cardName === targetLocation;
+        });
+
+        if (matchingCard) {
+            matchingCard.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    });
+});

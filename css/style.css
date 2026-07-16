@@ -54,8 +54,8 @@ header p {
 ======================================== */
 /* Controls the width of the main content */
 main {
-    width: 80%;
-    max-width: 900px;
+    width: 92%;
+    max-width: 1200px;
     margin: 40px auto;
 }
 
@@ -141,18 +141,52 @@ section p {
 
 .map-container {
     background-color: rgba(255, 255, 255, 0.15);
-
-    border: 3px dashed white;
-
+    border: 3px dashed var(--color-light-text);
     border-radius: 10px;
-
-    height: 250px;
+    min-height: 250px;
+    padding: 15px;
 
     display: flex;
-
-    justify-content: center;
-
+    flex-direction: column;
     align-items: center;
+}
+
+.interactive-map {
+    position: relative;
+    width: 100%;
+}
+
+.map-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.map-pin {
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 18px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    z-index: 2;
+}
+
+.map-pin:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+
+.map-credit {
+    color: var(--color-light-text);
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .route-section {
